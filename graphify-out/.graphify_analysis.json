@@ -1,0 +1,377 @@
+{
+  "communities": {
+    "0": [
+      "src_app_api_agendamentos_route",
+      "src_app_api_agendamentos_route_get",
+      "src_app_api_agendamentos_route_patch",
+      "src_app_api_agendamentos_route_post",
+      "src_app_api_barbers_route",
+      "src_app_api_barbers_route_get",
+      "src_app_api_simulate_concurrency_route",
+      "src_app_api_simulate_concurrency_route_post",
+      "src_components_admin_admindashboard",
+      "src_components_admin_admindashboard_admindashboard",
+      "src_components_client_bookingwizard",
+      "src_components_client_bookingwizard_bookingwizardprops",
+      "src_components_common_concurrencysimulatormodal",
+      "src_components_common_concurrencysimulatormodal_concurrencysimulatormodal",
+      "src_components_common_concurrencysimulatormodal_concurrencysimulatormodalprops",
+      "src_lib_db_service",
+      "src_lib_db_service_available_hours",
+      "src_lib_db_service_gettodaystring",
+      "src_lib_db_service_initial_barbers",
+      "src_lib_db_service_initial_services",
+      "src_types_index",
+      "src_types_index_appointmentstatus",
+      "src_types_index_barber",
+      "src_types_index_bookingrequest",
+      "src_types_index_userprofile"
+    ],
+    "1": [
+      "src_app_layout",
+      "src_app_layout_geistmono",
+      "src_app_layout_geistsans",
+      "src_app_layout_metadata",
+      "src_app_layout_rootlayout",
+      "src_app_page",
+      "src_app_page_home",
+      "src_components_client_bookingwizard_bookingwizard",
+      "src_components_client_myappointments",
+      "src_components_client_myappointments_myappointments",
+      "src_components_client_myappointments_myappointmentsprops",
+      "src_components_layout_navbar",
+      "src_components_layout_navbar_navbar",
+      "src_components_layout_navbar_navbarprops",
+      "src_contexts_authcontext",
+      "src_contexts_authcontext_authcontext",
+      "src_contexts_authcontext_authcontexttype",
+      "src_contexts_authcontext_authprovider",
+      "src_contexts_authcontext_demo_users",
+      "src_contexts_authcontext_useauth",
+      "src_types_index_userrole"
+    ],
+    "2": [
+      "firebase_admin",
+      "firebase_functions",
+      "functions_package",
+      "functions_package_dependencies",
+      "functions_package_dependencies_firebase_admin",
+      "functions_package_dependencies_firebase_functions",
+      "functions_package_devdependencies",
+      "functions_package_devdependencies_typescript",
+      "functions_package_engines",
+      "functions_package_engines_node",
+      "functions_package_json_typescript",
+      "functions_package_main",
+      "functions_package_name",
+      "functions_package_private",
+      "functions_package_scripts",
+      "functions_package_scripts_build",
+      "functions_package_scripts_deploy",
+      "functions_package_scripts_serve",
+      "functions_package_scripts_shell",
+      "functions_package_scripts_start"
+    ],
+    "3": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target"
+    ],
+    "4": [
+      "eslint",
+      "eslint_config_next",
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_postcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_json_typescript",
+      "tailwindcss",
+      "tailwindcss_postcss",
+      "types_node",
+      "types_react",
+      "types_react_dom"
+    ],
+    "5": [
+      "src_lib_db_service_databasestore",
+      "src_lib_db_service_databasestore_addservice",
+      "src_lib_db_service_databasestore_bookappointmentatomic",
+      "src_lib_db_service_databasestore_cancelappointment",
+      "src_lib_db_service_databasestore_completeappointment",
+      "src_lib_db_service_databasestore_constructor",
+      "src_lib_db_service_databasestore_deleteservice",
+      "src_lib_db_service_databasestore_getappointments",
+      "src_lib_db_service_databasestore_getbarberbyid",
+      "src_lib_db_service_databasestore_getbarbers",
+      "src_lib_db_service_databasestore_getoccupiedslots",
+      "src_lib_db_service_databasestore_getservicebyid",
+      "src_lib_db_service_databasestore_getservices",
+      "src_lib_db_service_databasestore_seedinitialappointments",
+      "src_lib_db_service_databasestore_updateservice",
+      "src_types_index_appointment",
+      "src_types_index_serviceitem"
+    ],
+    "6": [
+      "clsx",
+      "firebase",
+      "lucide_react",
+      "next",
+      "package_dependencies",
+      "package_dependencies_clsx",
+      "package_dependencies_firebase",
+      "package_dependencies_lucide_react",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_tailwind_merge",
+      "react",
+      "react_dom",
+      "tailwind_merge"
+    ],
+    "7": [
+      "ref_functions",
+      "ref_mts",
+      "ref_next_dev_types_ts",
+      "ref_next_env_d_ts",
+      "ref_next_types_ts",
+      "ref_node_modules",
+      "ref_ts",
+      "ref_tsx",
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "8": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_scripts_test_concurrency",
+      "package_version"
+    ],
+    "9": [
+      "src_app_api_services_route",
+      "src_app_api_services_route_delete",
+      "src_app_api_services_route_get",
+      "src_app_api_services_route_post",
+      "src_app_api_services_route_put"
+    ],
+    "10": [
+      "src_lib_firebase",
+      "src_lib_firebase_auth",
+      "src_lib_firebase_db",
+      "src_lib_firebase_firebaseconfig",
+      "src_lib_firebase_isfirebaseconfigured"
+    ],
+    "11": [
+      "functions_src_index",
+      "functions_src_index_db",
+      "functions_src_index_novoagendamentoinput",
+      "functions_src_index_validarecriaragendamento"
+    ],
+    "12": [
+      "eslint_config",
+      "eslint_config_eslintconfig"
+    ],
+    "13": [
+      "next_config",
+      "next_config_nextconfig"
+    ],
+    "14": [
+      "postcss_config",
+      "postcss_config_config"
+    ],
+    "15": [
+      "scripts_test_concurrency",
+      "scripts_test_concurrency_runtest"
+    ]
+  },
+  "cohesion": {
+    "0": 0.14666666666666667,
+    "1": 0.15714285714285714,
+    "2": 0.1,
+    "3": 0.10526315789473684,
+    "4": 0.11764705882352941,
+    "5": 0.18382352941176472,
+    "6": 0.13333333333333333,
+    "7": 0.18181818181818182,
+    "8": 0.2,
+    "9": 0.4,
+    "10": 0.4,
+    "11": 0.5,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_lib_db_service_databasestore",
+      "label": "DatabaseStore",
+      "degree": 18
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "src_lib_db_service_gettodaystring",
+      "label": "getTodayString()",
+      "degree": 10
+    },
+    {
+      "id": "src_contexts_authcontext_useauth",
+      "label": "useAuth()",
+      "degree": 9
+    },
+    {
+      "id": "src_types_index_serviceitem",
+      "label": "ServiceItem",
+      "degree": 9
+    },
+    {
+      "id": "src_types_index_barber",
+      "label": "Barber",
+      "degree": 7
+    },
+    {
+      "id": "src_types_index_appointment",
+      "label": "Appointment",
+      "degree": 7
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
+      "degree": 7
+    },
+    {
+      "id": "functions_package_scripts",
+      "label": "scripts",
+      "degree": 6
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "POST()",
+      "target": "getTodayString()",
+      "source_files": [
+        "src/app/api/simulate-concurrency/route.ts",
+        "src/lib/db-service.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `POST()` unexpectedly reaches hub `getTodayString()`"
+    },
+    {
+      "source": "Home()",
+      "target": "useAuth()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/contexts/AuthContext.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `Home()` unexpectedly reaches hub `useAuth()`"
+    },
+    {
+      "source": "BookingWizard()",
+      "target": "getTodayString()",
+      "source_files": [
+        "src/components/client/BookingWizard.tsx",
+        "src/lib/db-service.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "AuthContextType",
+      "target": "UserProfile",
+      "source_files": [
+        "src/contexts/AuthContext.tsx",
+        "src/types/index.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "DatabaseStore",
+      "target": "Barber",
+      "source_files": [
+        "src/lib/db-service.ts",
+        "src/types/index.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.033) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `dependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.030) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `DatabaseStore` connect `DatabaseStore` to `db-service.ts`?",
+      "why": "High betweenness centrality (0.029) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `eslintConfig`, `name`, `build` to the rest of the system?",
+      "why": "82 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `db-service.ts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14666666666666667 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `functions/package.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
