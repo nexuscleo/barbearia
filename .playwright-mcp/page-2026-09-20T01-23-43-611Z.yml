@@ -1,0 +1,106 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]:
+            - text: NAVALHA
+            - generic [ref=e16]: D'OURO
+          - generic [ref=e17]: Barbearia & Barber Shop
+        - navigation [ref=e18]:
+          - button "Novo Agendamento" [ref=e19]
+          - button "Meus Horários" [ref=e20]
+          - button "Painel Admin" [ref=e21]
+        - generic [ref=e25]:
+          - button "Simular Concorrência" [active] [ref=e26]:
+            - generic [ref=e29]: Simular
+            - text: Concorrência
+          - generic [ref=e30]:
+            - button "Cliente" [ref=e31]
+            - button "Admin" [ref=e32]
+    - generic [ref=e34]:
+      - generic [ref=e36]: "Firebase Concurrency Lock Ativo:"
+      - generic [ref=e37]: Proteção estrita anti-duplicidade em transação atômica.
+      - button "[Testar Simulação de 2 Cliques Simultâneos]" [ref=e38] [cursor=pointer]
+    - main [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]: Experiência Premium de Barbearia Tradicional
+          - heading "Agende seu Estilo com a Navalha D'Ouro" [level=1] [ref=e45]
+          - paragraph [ref=e46]: Escolha seu serviço, selecione seu barbeiro e reserve em segundos sem filas e com confirmação em tempo real.
+        - generic [ref=e48]:
+          - generic [ref=e50]:
+            - generic [ref=e52] [cursor=pointer]: Serviço
+            - generic [ref=e61] [cursor=pointer]: Barbeiro
+            - generic [ref=e67] [cursor=pointer]: Data & Hora
+            - generic [ref=e72] [cursor=pointer]: Confirmar
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - heading "Selecione o Serviço Desejado" [level=2] [ref=e79]
+              - generic [ref=e86]: Passo 1 de 4
+            - generic [ref=e112]:
+              - generic [ref=e114] [cursor=pointer]:
+                - generic [ref=e115]:
+                  - generic [ref=e116]:
+                    - heading "Corte Degradê Navalhado" [level=3] [ref=e117]
+                    - generic [ref=e118]: Mais Pedido
+                  - paragraph [ref=e122]: Corte contemporâneo com transição limpa na navalha, finalização com pomada matte premium.
+                  - generic [ref=e123]: 45 min
+                - generic [ref=e128]: R$ 60.00
+              - generic [ref=e134] [cursor=pointer]:
+                - generic [ref=e135]:
+                  - generic [ref=e136]:
+                    - heading "Barboterapia & Toalha Quente" [level=3] [ref=e137]
+                    - generic [ref=e138]: Mais Pedido
+                  - paragraph [ref=e142]: Modelagem de barba com esfoliação facial, óleos essenciais, toalha quente e pós-barba refrescante.
+                  - generic [ref=e143]: 35 min
+                - generic [ref=e148]: R$ 50.00
+              - generic [ref=e154] [cursor=pointer]:
+                - generic [ref=e155]:
+                  - generic [ref=e156]:
+                    - heading "Combo Executivo (Cabelo + Barba)" [level=3] [ref=e157]
+                    - generic [ref=e158]: Mais Pedido
+                  - paragraph [ref=e162]: "Experiência completa: corte na tesoura ou navalha e alinhamento impecável de barba com toalha aquecida."
+                  - generic [ref=e163]: 75 min
+                - generic [ref=e168]: R$ 95.00
+              - generic [ref=e174] [cursor=pointer]:
+                - generic [ref=e175]:
+                  - heading "Pigmentação de Barba ou Cabelo" [level=3] [ref=e177]
+                  - paragraph [ref=e178]: Preenchimento harmônico de falhas e realce dos fios grisalhos com tintura hipoalergênica.
+                  - generic [ref=e179]: 30 min
+                - generic [ref=e184]: R$ 45.00
+              - generic [ref=e190] [cursor=pointer]:
+                - generic [ref=e191]:
+                  - heading "Tratamento Capilar & Hidratação" [level=3] [ref=e193]
+                  - paragraph [ref=e194]: Lavagem com shampoo purificante e nutrição profunda dos fios danificados.
+                  - generic [ref=e195]: 30 min
+                - generic [ref=e200]: R$ 40.00
+            - button "Continuar para Barbeiro" [disabled] [ref=e88]
+    - contentinfo [ref=e91]:
+      - generic [ref=e92]:
+        - generic [ref=e99]: Navalha D'Ouro Barber Shop
+        - generic [ref=e100]: •
+        - generic [ref=e101]: Next.js 15 + TailwindCSS + Firebase Full-Stack
+      - paragraph [ref=e102]: © 2026 Navalha D'Ouro. Todos os direitos reservados. Travas atômicas garantidas via Firestore & Cloud Functions.
+    - generic [ref=e206]:
+      - generic [ref=e207]:
+        - generic [ref=e212]:
+          - heading "Simulador de Concorrência & Trava Atômica" [level=2] [ref=e213]
+          - paragraph [ref=e214]:
+            - text: "Teste de estresse: 2 clientes clicando para agendar o"
+            - strong [ref=e215]: mesmo barbeiro e horário
+            - text: simultaneamente.
+        - button "✕" [ref=e216]
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]: "Barbeiro Alvo:"
+          - strong [ref=e220]: Mateus "Navalha" Silva
+        - generic [ref=e221]:
+          - generic [ref=e222]: "Horário Disputado:"
+          - generic [ref=e223]:
+            - textbox "16:00" [ref=e224]
+            - generic [ref=e225]: "Data: 2026-09-19"
+      - button "Disparar 2 Agendamentos Simultâneos no Mesmo Milissegundo" [ref=e226] [cursor=pointer]
+      - button "Fechar Janela" [ref=e230]
+  - button "Open Next.js Dev Tools" [ref=e108] [cursor=pointer]
+  - alert [ref=e231]

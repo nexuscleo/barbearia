@@ -1,0 +1,74 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]:
+            - text: NAVALHA
+            - generic [ref=e16]: D'OURO
+          - generic [ref=e17]: Barbearia & Barber Shop
+        - navigation [ref=e18]:
+          - button "Novo Agendamento" [ref=e19]
+          - button "Meus Horários" [ref=e20]
+          - button "Painel Admin" [ref=e21]
+        - generic [ref=e25]:
+          - button "Simular Concorrência" [ref=e26]:
+            - generic [ref=e29]: Simular
+            - text: Concorrência
+          - generic [ref=e30]:
+            - button "Cliente" [ref=e31]
+            - button "Admin" [ref=e32]
+    - generic [ref=e34]:
+      - generic [ref=e36]: "Firebase Concurrency Lock Ativo:"
+      - generic [ref=e37]: Proteção estrita anti-duplicidade em transação atômica.
+      - button "[Testar Simulação de 2 Cliques Simultâneos]" [ref=e38] [cursor=pointer]
+    - main [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]: Experiência Premium de Barbearia Tradicional
+          - heading "Agende seu Estilo com a Navalha D'Ouro" [level=1] [ref=e45]
+          - paragraph [ref=e46]: Escolha seu serviço, selecione seu barbeiro e reserve em segundos sem filas e com confirmação em tempo real.
+        - generic [ref=e48]:
+          - generic [ref=e50]:
+            - generic [ref=e52] [cursor=pointer]: Serviço
+            - generic [ref=e61] [cursor=pointer]: Barbeiro
+            - generic [ref=e67] [cursor=pointer]: Data & Hora
+            - generic [ref=e72] [cursor=pointer]: Confirmar
+          - generic [ref=e257]:
+            - generic [ref=e258]:
+              - button "Voltar" [ref=e259]
+              - generic [ref=e262]: Passo 2 de 4
+            - heading "Escolha seu Barbeiro de Preferência" [level=2] [ref=e263]
+            - generic [ref=e267]:
+              - generic [ref=e268] [cursor=pointer]:
+                - img "Mateus \"Navalha\" Silva" [ref=e269]
+                - generic [ref=e270]:
+                  - generic [ref=e271]:
+                    - heading "Mateus \"Navalha\" Silva" [level=3] [ref=e272]
+                    - generic [ref=e273]: ★ 4.9
+                  - paragraph [ref=e274]: Especialista em Degradê, Fade & Visagismo Masculino
+              - generic [ref=e278] [cursor=pointer]:
+                - img "Carlos Eduardo (Kadu)" [ref=e279]
+                - generic [ref=e280]:
+                  - generic [ref=e281]:
+                    - heading "Carlos Eduardo (Kadu)" [level=3] [ref=e282]
+                    - generic [ref=e283]: ★ 5.0
+                  - paragraph [ref=e284]: Mestre em Barboterapia & Barba Lenhador Tradicional
+              - generic [ref=e288] [cursor=pointer]:
+                - img "Enzo Ferrari" [ref=e289]
+                - generic [ref=e290]:
+                  - generic [ref=e291]:
+                    - heading "Enzo Ferrari" [level=3] [ref=e292]
+                    - generic [ref=e293]: ★ 4.8
+                  - paragraph [ref=e294]: Cortes Modernos, Texturização & Pigmentação
+            - generic [ref=e298]:
+              - button "Voltar" [ref=e299]
+              - button "Escolher Data e Horário" [ref=e300]
+    - contentinfo [ref=e91]:
+      - generic [ref=e92]:
+        - generic [ref=e99]: Navalha D'Ouro Barber Shop
+        - generic [ref=e100]: •
+        - generic [ref=e101]: Next.js 15 + TailwindCSS + Firebase Full-Stack
+      - paragraph [ref=e102]: © 2026 Navalha D'Ouro. Todos os direitos reservados. Travas atômicas garantidas via Firestore & Cloud Functions.
+  - button "Open Next.js Dev Tools" [ref=e108] [cursor=pointer]
+  - alert [ref=e231]

@@ -1,0 +1,83 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]:
+            - text: NAVALHA
+            - generic [ref=e16]: D'OURO
+          - generic [ref=e17]: Barbearia & Barber Shop
+        - generic [ref=e25]:
+          - button "Concorrência" [ref=e742]
+          - generic [ref=e30]:
+            - button "Cliente" [ref=e31]
+            - button "Admin" [ref=e32]
+      - generic [ref=e743]:
+        - button "Agendar" [active] [ref=e744]
+        - button "Meus Agendamentos" [ref=e751]
+        - button "Admin" [ref=e755]
+    - generic [ref=e34]:
+      - generic [ref=e36]: "Firebase Concurrency Lock Ativo:"
+      - button "[Testar Simulação de 2 Cliques Simultâneos]" [ref=e38] [cursor=pointer]
+    - main [ref=e39]:
+      - generic [ref=e759]:
+        - generic [ref=e760]:
+          - generic [ref=e761]: Experiência Premium de Barbearia Tradicional
+          - heading "Agende seu Estilo com a Navalha D'Ouro" [level=1] [ref=e764]
+          - paragraph [ref=e765]: Escolha seu serviço, selecione seu barbeiro e reserve em segundos sem filas e com confirmação em tempo real.
+        - generic [ref=e767]:
+          - generic [ref=e769]:
+            - generic [ref=e771] [cursor=pointer]: Serviço
+            - generic [ref=e780] [cursor=pointer]: Barbeiro
+            - generic [ref=e786] [cursor=pointer]: Data & Hora
+            - generic [ref=e791] [cursor=pointer]: Confirmar
+          - generic [ref=e796]:
+            - generic [ref=e797]:
+              - heading "Selecione o Serviço Desejado" [level=2] [ref=e798]
+              - generic [ref=e805]: Passo 1 de 4
+            - generic [ref=e806]:
+              - generic [ref=e808] [cursor=pointer]:
+                - generic [ref=e809]:
+                  - generic [ref=e810]:
+                    - heading "Corte Degradê Navalhado" [level=3] [ref=e811]
+                    - generic [ref=e812]: Mais Pedido
+                  - paragraph [ref=e816]: Corte contemporâneo com transição limpa na navalha, finalização com pomada matte premium.
+                  - generic [ref=e817]: 45 min
+                - generic [ref=e822]: R$ 60.00
+              - generic [ref=e828] [cursor=pointer]:
+                - generic [ref=e829]:
+                  - generic [ref=e830]:
+                    - heading "Barboterapia & Toalha Quente" [level=3] [ref=e831]
+                    - generic [ref=e832]: Mais Pedido
+                  - paragraph [ref=e836]: Modelagem de barba com esfoliação facial, óleos essenciais, toalha quente e pós-barba refrescante.
+                  - generic [ref=e837]: 35 min
+                - generic [ref=e842]: R$ 50.00
+              - generic [ref=e848] [cursor=pointer]:
+                - generic [ref=e849]:
+                  - generic [ref=e850]:
+                    - heading "Combo Executivo (Cabelo + Barba)" [level=3] [ref=e851]
+                    - generic [ref=e852]: Mais Pedido
+                  - paragraph [ref=e856]: "Experiência completa: corte na tesoura ou navalha e alinhamento impecável de barba com toalha aquecida."
+                  - generic [ref=e857]: 75 min
+                - generic [ref=e862]: R$ 95.00
+              - generic [ref=e868] [cursor=pointer]:
+                - generic [ref=e869]:
+                  - heading "Pigmentação de Barba ou Cabelo" [level=3] [ref=e871]
+                  - paragraph [ref=e872]: Preenchimento harmônico de falhas e realce dos fios grisalhos com tintura hipoalergênica.
+                  - generic [ref=e873]: 30 min
+                - generic [ref=e878]: R$ 45.00
+              - generic [ref=e884] [cursor=pointer]:
+                - generic [ref=e885]:
+                  - heading "Tratamento Capilar & Hidratação" [level=3] [ref=e887]
+                  - paragraph [ref=e888]: Lavagem com shampoo purificante e nutrição profunda dos fios danificados.
+                  - generic [ref=e889]: 30 min
+                - generic [ref=e894]: R$ 40.00
+            - button "Continuar para Barbeiro" [disabled] [ref=e900]
+    - contentinfo [ref=e91]:
+      - generic [ref=e92]:
+        - generic [ref=e99]: Navalha D'Ouro Barber Shop
+        - generic [ref=e100]: •
+        - generic [ref=e101]: Next.js 15 + TailwindCSS + Firebase Full-Stack
+      - paragraph [ref=e102]: © 2026 Navalha D'Ouro. Todos os direitos reservados. Travas atômicas garantidas via Firestore & Cloud Functions.
+  - button "Open Next.js Dev Tools" [ref=e108] [cursor=pointer]
+  - alert [ref=e231]
