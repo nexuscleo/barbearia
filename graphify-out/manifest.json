@@ -4,55 +4,40 @@
     "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
     "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
   },
-  "functions/package.json": {
-    "mtime": 1789866653.211933,
-    "ast_hash": "ded64969b6f216969052a807b4893eae",
-    "semantic_hash": "ded64969b6f216969052a807b4893eae"
-  },
-  "functions/src/index.ts": {
-    "mtime": 1789866660.1634493,
-    "ast_hash": "08b434046ab12ea3f120bc47601b59df",
-    "semantic_hash": "08b434046ab12ea3f120bc47601b59df"
-  },
   "next.config.ts": {
-    "mtime": 1789866069.4374588,
-    "ast_hash": "9b77af189a21a7a64e4bd7a426f64176",
-    "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
+    "mtime": 1790391316.5560303,
+    "ast_hash": "be73110f2c51ca2714909ea2f148f10c",
+    "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1789866847.4268866,
-    "ast_hash": "91da58478e951f69589401017db30427",
-    "semantic_hash": "91da58478e951f69589401017db30427"
+    "mtime": 1790395867.27018,
+    "ast_hash": "e91263c3f56ee78ed71eb9752311ae06",
+    "semantic_hash": ""
   },
   "postcss.config.mjs": {
     "mtime": 1789866069.0531256,
     "ast_hash": "239f3ebf717465dc636818a1a619398d",
     "semantic_hash": "239f3ebf717465dc636818a1a619398d"
   },
-  "scripts/test-concurrency.mjs": {
-    "mtime": 1789866842.7078056,
-    "ast_hash": "4fc35cfe5613df48c4994be164d44115",
-    "semantic_hash": "4fc35cfe5613df48c4994be164d44115"
-  },
   "src/app/api/agendamentos/route.ts": {
-    "mtime": 1789866665.3062482,
-    "ast_hash": "842fbfab1dc6b723642d8170a8670b2a",
-    "semantic_hash": "842fbfab1dc6b723642d8170a8670b2a"
+    "mtime": 1790391316.562641,
+    "ast_hash": "7fe9c1926ef8e714ba3dab182c66373f",
+    "semantic_hash": ""
   },
   "src/app/api/barbers/route.ts": {
-    "mtime": 1789866669.7535641,
-    "ast_hash": "b955280ba63f35230147a0373ffd891b",
-    "semantic_hash": "b955280ba63f35230147a0373ffd891b"
+    "mtime": 1790391316.5666416,
+    "ast_hash": "e16b8e5b2088ee97e559533dd9051248",
+    "semantic_hash": ""
   },
   "src/app/api/services/route.ts": {
-    "mtime": 1789866675.182399,
-    "ast_hash": "a5a461854c1c6a459bd6267162e71a37",
-    "semantic_hash": "a5a461854c1c6a459bd6267162e71a37"
+    "mtime": 1790391316.915428,
+    "ast_hash": "93b6fb6788bcf74821bc8fd226511ebf",
+    "semantic_hash": ""
   },
   "src/app/api/simulate-concurrency/route.ts": {
-    "mtime": 1789866681.5131896,
-    "ast_hash": "16003a1b400a6a74995eda220287af11",
-    "semantic_hash": "16003a1b400a6a74995eda220287af11"
+    "mtime": 1790395837.084904,
+    "ast_hash": "d9297ebb17e2562573bc9a189ce4cbc6",
+    "semantic_hash": ""
   },
   "src/app/layout.tsx": {
     "mtime": 1789866764.8628263,
@@ -60,49 +45,44 @@
     "semantic_hash": "4fe6aca8da1290032816c08a778e7dbc"
   },
   "src/app/page.tsx": {
-    "mtime": 1789866772.5931144,
-    "ast_hash": "660337305a5013cee8da56cc27b8b208",
-    "semantic_hash": "660337305a5013cee8da56cc27b8b208"
+    "mtime": 1790391317.221126,
+    "ast_hash": "982ba9a01010adbcb7d3786e4f6c8aa8",
+    "semantic_hash": ""
   },
   "src/components/admin/AdminDashboard.tsx": {
-    "mtime": 1789866822.7178545,
-    "ast_hash": "9e2f71aa5d9d81da252ad9567798273e",
-    "semantic_hash": "9e2f71aa5d9d81da252ad9567798273e"
+    "mtime": 1790395809.0896804,
+    "ast_hash": "c350d12a123852495547ce5b24a27921",
+    "semantic_hash": ""
   },
   "src/components/client/BookingWizard.tsx": {
-    "mtime": 1789866720.7874167,
-    "ast_hash": "fa148f0e666aec690eaf2b024a07c2bb",
-    "semantic_hash": "fa148f0e666aec690eaf2b024a07c2bb"
+    "mtime": 1790395814.8002472,
+    "ast_hash": "982c19594518450fa84e001616eadd6d",
+    "semantic_hash": ""
   },
   "src/components/client/MyAppointments.tsx": {
-    "mtime": 1789866729.7794194,
-    "ast_hash": "35ce2d05f2b1986681770fac217e801f",
-    "semantic_hash": "35ce2d05f2b1986681770fac217e801f"
+    "mtime": 1790391317.4127793,
+    "ast_hash": "f6c33d9e7e5243b5d48fd2ff88356588",
+    "semantic_hash": ""
   },
   "src/components/common/ConcurrencySimulatorModal.tsx": {
-    "mtime": 1789866757.2489264,
-    "ast_hash": "7b381fcb2023c5835dbbad3d8cc2bd32",
-    "semantic_hash": "7b381fcb2023c5835dbbad3d8cc2bd32"
+    "mtime": 1790395826.0902145,
+    "ast_hash": "d86843a3e2c94377bcd3030f7993a855",
+    "semantic_hash": ""
   },
   "src/components/layout/Navbar.tsx": {
-    "mtime": 1789866702.1073923,
-    "ast_hash": "0b30fe7bc6fe87c43f05b86cc997f043",
-    "semantic_hash": "0b30fe7bc6fe87c43f05b86cc997f043"
+    "mtime": 1790391317.4378798,
+    "ast_hash": "99a395817642ed007e34cc2110adbfe1",
+    "semantic_hash": ""
   },
   "src/contexts/AuthContext.tsx": {
-    "mtime": 1789866687.6908977,
-    "ast_hash": "77f81a61d4e606f6a27b04e941c140fd",
-    "semantic_hash": "77f81a61d4e606f6a27b04e941c140fd"
+    "mtime": 1790391317.4444265,
+    "ast_hash": "3be2d6d8cbe391318bb40007efce57b9",
+    "semantic_hash": ""
   },
   "src/lib/db-service.ts": {
-    "mtime": 1789866815.9877968,
-    "ast_hash": "e6a896459f9dc026beb523569ddad657",
-    "semantic_hash": "e6a896459f9dc026beb523569ddad657"
-  },
-  "src/lib/firebase.ts": {
-    "mtime": 1789866633.0200326,
-    "ast_hash": "e3e0b2378630aae52c6f58b59a6d00a0",
-    "semantic_hash": "e3e0b2378630aae52c6f58b59a6d00a0"
+    "mtime": 1790395802.1290917,
+    "ast_hash": "4083e23e930611ad4aa5b3bae26d6404",
+    "semantic_hash": ""
   },
   "src/types/index.ts": {
     "mtime": 1789866626.3037786,
@@ -110,8 +90,173 @@
     "semantic_hash": "9036c72ac374c4d0513d3d7940830621"
   },
   "tsconfig.json": {
-    "mtime": 1789866807.954051,
-    "ast_hash": "6cd8fedd48dcc42d1d5026c3cc5f98b8",
-    "semantic_hash": "6cd8fedd48dcc42d1d5026c3cc5f98b8"
+    "mtime": 1790395851.6656668,
+    "ast_hash": "ee17fd1c97c735e9f3564e3f5251f125",
+    "semantic_hash": ""
+  },
+  "src/app/robots.ts": {
+    "mtime": 1790391316.981285,
+    "ast_hash": "60e8f466f1c8dca7b70159746b4fabf6",
+    "semantic_hash": ""
+  },
+  "src/app/sitemap.ts": {
+    "mtime": 1790391317.1356943,
+    "ast_hash": "e7265299b11fc4b9c3f8a2d6336e4da2",
+    "semantic_hash": ""
+  },
+  "src/components/admin/AdminAppointmentsList.tsx": {
+    "mtime": 1790391317.3720434,
+    "ast_hash": "0b4d4abe1ea1c5dba2117e434856e66f",
+    "semantic_hash": ""
+  },
+  "src/components/admin/AdminMetricsBar.tsx": {
+    "mtime": 1790391317.3760583,
+    "ast_hash": "423f256c1a52ed0d37d15ac7c5e9b918",
+    "semantic_hash": ""
+  },
+  "src/components/admin/AdminServiceModal.tsx": {
+    "mtime": 1790391317.3770602,
+    "ast_hash": "1bdf7da65a9fbd9f3de7d38273fdbb51",
+    "semantic_hash": ""
+  },
+  "src/components/admin/AdminServicesList.tsx": {
+    "mtime": 1790391317.3816,
+    "ast_hash": "69f240b20c071ea9940654bdb72df7dd",
+    "semantic_hash": ""
+  },
+  "src/components/client/booking/BookingSuccessCard.tsx": {
+    "mtime": 1790391317.425335,
+    "ast_hash": "ed5c9c38116c24e6744a122696e68083",
+    "semantic_hash": ""
+  },
+  "src/components/client/booking/StepBarberSelection.tsx": {
+    "mtime": 1790391317.425335,
+    "ast_hash": "05f712d91c7512c373dbd16a1cb30d63",
+    "semantic_hash": ""
+  },
+  "src/components/client/booking/StepConfirmation.tsx": {
+    "mtime": 1790391317.425335,
+    "ast_hash": "789dff547c1d0e6c357ea3dcbb8a5afe",
+    "semantic_hash": ""
+  },
+  "src/components/client/booking/StepDateTimeSelection.tsx": {
+    "mtime": 1790391317.426331,
+    "ast_hash": "9134a9e6e18a557809128ea4b72612d4",
+    "semantic_hash": ""
+  },
+  "src/components/client/booking/StepServiceSelection.tsx": {
+    "mtime": 1790391317.432882,
+    "ast_hash": "62396a1bb04e53dd692660333e43a0c0",
+    "semantic_hash": ""
+  },
+  "src/lib/errors.ts": {
+    "mtime": 1790391317.5102632,
+    "ast_hash": "0b8e2880b6d5614cef96875dc09acc9e",
+    "semantic_hash": ""
+  },
+  "src/lib/rate-limiter.ts": {
+    "mtime": 1790391317.5102632,
+    "ast_hash": "d62edf79b5ff5cd937e6c17c0ea87a66",
+    "semantic_hash": ""
+  },
+  "src/lib/validations/booking.ts": {
+    "mtime": 1790391317.5102632,
+    "ast_hash": "925636737477a66d9a2e6896aef2875d",
+    "semantic_hash": ""
+  },
+  "src/services/booking-api.ts": {
+    "mtime": 1790391317.5102632,
+    "ast_hash": "101baa3eb79e7f48bc31d8f93ab2a66c",
+    "semantic_hash": ""
+  },
+  "tests/db-service-concurrency.test.mjs": {
+    "mtime": 1790391317.5102632,
+    "ast_hash": "8271dfbc678507f0d93203190b3229fc",
+    "semantic_hash": ""
+  },
+  "tests/validations.test.mjs": {
+    "mtime": 1790391317.510778,
+    "ast_hash": "9a68513ed9a93ad9f27b354a2fbe5125",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1789869357.3387787,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1789869357.341786,
+    "ast_hash": "637776aa6f7496d069afe7520c845c8a",
+    "semantic_hash": ""
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1790391316.2129679,
+    "ast_hash": "37f623aba9b6358b16c0e431315c8515",
+    "semantic_hash": ""
+  },
+  ".github/workflows/nextjs.yml": {
+    "mtime": 1789868951.4685173,
+    "ast_hash": "04d60770918c8271ab8b8026a338ac28",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1789866449.787859,
+    "ast_hash": "01e8142356e15c3404e0d84c48187cd0",
+    "semantic_hash": ""
+  },
+  "ARCHITECTURE.md": {
+    "mtime": 1790391316.2129679,
+    "ast_hash": "729e90a34c1119eef43874bd44ce5fde",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1789866449.805671,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1790395894.8548446,
+    "ast_hash": "07b59a9d59ec89f83a0df79ab359a1c8",
+    "semantic_hash": ""
+  },
+  "auditoria.md": {
+    "mtime": 1790389999.2637,
+    "ast_hash": "68628663391a7efc0ad98d4d91de8d9f",
+    "semantic_hash": ""
+  },
+  "src/lib/date-utils.ts": {
+    "mtime": 1790395778.8394327,
+    "ast_hash": "e325f99555d32a713ac0f2fda92eecec",
+    "semantic_hash": ""
+  },
+  "src/lib/utils.ts": {
+    "mtime": 1790395786.4498236,
+    "ast_hash": "2eaa6da8e9802495f0020b5ca9229400",
+    "semantic_hash": ""
+  },
+  "tests/e2e-concurrency.mjs": {
+    "mtime": 1789866842.7078056,
+    "ast_hash": "4fc35cfe5613df48c4994be164d44115",
+    "semantic_hash": ""
+  },
+  "public/screenshots/admin-dashboard.png": {
+    "mtime": 1789867521.3492799,
+    "ast_hash": "0b0f97d76b02f93c1859536334076f02",
+    "semantic_hash": ""
+  },
+  "public/screenshots/booking-success.png": {
+    "mtime": 1789867507.7079597,
+    "ast_hash": "7a2cdee57e9938c65f41cd5a2237d1c7",
+    "semantic_hash": ""
+  },
+  "public/screenshots/concurrency-test.png": {
+    "mtime": 1789867455.373332,
+    "ast_hash": "166bc35ef6294e43289cf8f79d30640a",
+    "semantic_hash": ""
+  },
+  "public/screenshots/mobile-view.png": {
+    "mtime": 1789867644.6169143,
+    "ast_hash": "cf6110d6e36381c57c4438e73c1a62b6",
+    "semantic_hash": ""
   }
 }

@@ -34,25 +34,32 @@ const DEMO_USERS: Record<UserRole, UserProfile> = {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<UserProfile | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  // Inicialização preguiçosa (lazy) sem efeitos síncronos secundários
+  const [user, setUser] = useState<UserProfile | null>(() => {
+    if (typeof window === 'undefined') return DEMO_USERS.cliente;
+    try {
+      const saved = localStorage.getItem('barbearia_active_user');
+      return saved ? JSON.parse(saved) : DEMO_USERS.cliente;
+    } catch {
+      return DEMO_USERS.cliente;
+    }
+  });
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    // Inicializa com o usuário demo de cliente para fluidez imediata
-    const saved = localStorage.getItem('barbearia_active_user');
-    if (saved) {
+    // Sincroniza persistência de forma desacoplada
+    if (user) {
       try {
-        setUser(JSON.parse(saved));
+        localStorage.setItem('barbearia_active_user', JSON.stringify(user));
       } catch {
-        setUser(DEMO_USERS.cliente);
+        // quota ou private mode
       }
-    } else {
-      setUser(DEMO_USERS.cliente);
     }
-    setIsLoading(false);
-  }, []);
+  }, [user]);
 
   const login = (email: string, targetRole: UserRole = 'cliente', nome?: string) => {
+    setIsLoading(true);
     const newUser: UserProfile = {
       uid: `usr-${Date.now()}`,
       nome: nome || (targetRole === 'admin' ? 'Gerente / Dono' : 'Cliente Convidado'),
@@ -62,18 +69,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       criadoEm: new Date().toISOString(),
     };
     setUser(newUser);
-    localStorage.setItem('barbearia_active_user', JSON.stringify(newUser));
+    setIsLoading(false);
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('barbearia_active_user');
+    try {
+      localStorage.removeItem('barbearia_active_user');
+    } catch {
+      // noop
+    }
   };
 
   const switchRole = (newRole: UserRole) => {
     const selected = DEMO_USERS[newRole];
     setUser(selected);
-    localStorage.setItem('barbearia_active_user', JSON.stringify(selected));
   };
 
   return (
@@ -92,7 +102,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useAuth() {
+export function useAuth(): AuthContextType {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error('useAuth deve ser utilizado dentro de um AuthProvider');

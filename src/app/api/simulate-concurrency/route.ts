@@ -1,14 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { dbService, getTodayString } from '@/lib/db-service';
-import { BookingRequest } from '@/types';
+import { dbService } from '@/lib/db-service';
+import { getTodayString } from '@/lib/date-utils';
+import { Appointment, BookingRequest } from '@/types';
+import { simulateConcurrencySchema } from '@/lib/validations/booking';
+import { AppError, getErrorMessage } from '@/lib/errors';
+
+export interface ClientSimulationSummary {
+  status: 'SUCCESS' | 'REJECTED_CONFLICT';
+  httpCode: number;
+  message: string;
+  code?: string;
+  appointmentId?: string;
+  slotLock?: string;
+  client: string;
+}
+
+export interface SimulationResultResponse {
+  success: boolean;
+  simulationTimeMs: number;
+  targetSlot: string;
+  lockStrictlyEnforced: boolean;
+  verdict: string;
+  cliente1: ClientSimulationSummary;
+  cliente2: ClientSimulationSummary;
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json().catch(() => ({}));
-    const date = body.date || getTodayString();
-    const horario = body.horario || '16:00';
-    const barbeiroId = body.barbeiroId || 'barber-1';
-    const servicoId = body.servicoId || 'srv-1';
+    const rawBody = await request.json().catch(() => ({}));
+    const parsed = simulateConcurrencySchema.safeParse(rawBody);
+    const data = parsed.success ? parsed.data : {};
+
+    const date = data.date || getTodayString();
+    const horario = data.horario || '16:00';
+    const barbeiroId = data.barbeiroId || 'barber-1';
+    const servicoId = data.servicoId || 'srv-1';
 
     const reqCliente1: BookingRequest = {
       clienteId: 'cliente-alfa',
@@ -18,7 +44,7 @@ export async function POST(request: NextRequest) {
       barbeiroId,
       servicoId,
       data: date,
-      horario
+      horario,
     };
 
     const reqCliente2: BookingRequest = {
@@ -29,18 +55,21 @@ export async function POST(request: NextRequest) {
       barbeiroId,
       servicoId,
       data: date,
-      horario
+      horario,
     };
 
     // Dispara AMBAS as requisições em paralelo exato via Promise.allSettled
     const startTime = Date.now();
     const [resultA, resultB] = await Promise.allSettled([
       dbService.bookAppointmentAtomic(reqCliente1),
-      dbService.bookAppointmentAtomic(reqCliente2)
+      dbService.bookAppointmentAtomic(reqCliente2),
     ]);
     const durationMs = Date.now() - startTime;
 
-    const parseResult = (res: PromiseSettledResult<any>, clientLabel: string) => {
+    const parseResult = (
+      res: PromiseSettledResult<Appointment>,
+      clientLabel: string
+    ): ClientSimulationSummary => {
       if (res.status === 'fulfilled') {
         return {
           status: 'SUCCESS',
@@ -51,11 +80,14 @@ export async function POST(request: NextRequest) {
           client: clientLabel,
         };
       } else {
+        const reason = res.reason;
+        const code = reason instanceof AppError ? reason.code : 'SLOT_ALREADY_BOOKED';
+        const msg = getErrorMessage(reason) || 'Conflito de concorrência detectado.';
         return {
           status: 'REJECTED_CONFLICT',
           httpCode: 409,
-          message: res.reason.message || 'Conflito de concorrência detectado.',
-          code: res.reason.code || 'SLOT_ALREADY_BOOKED',
+          message: msg,
+          code,
           client: clientLabel,
         };
       }
@@ -69,7 +101,7 @@ export async function POST(request: NextRequest) {
       (summaryA.status === 'SUCCESS' && summaryB.status === 'REJECTED_CONFLICT') ||
       (summaryB.status === 'SUCCESS' && summaryA.status === 'REJECTED_CONFLICT');
 
-    return NextResponse.json({
+    const responsePayload: SimulationResultResponse = {
       success: true,
       simulationTimeMs: durationMs,
       targetSlot: `${date} às ${horario}`,
@@ -79,8 +111,13 @@ export async function POST(request: NextRequest) {
         : 'FALHA DE CONCORRÊNCIA: Ambos conseguiram ou ambos falharam de forma inesperada.',
       cliente1: summaryA,
       cliente2: summaryB,
-    });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    };
+
+    return NextResponse.json(responsePayload);
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { success: false, error: getErrorMessage(error) },
+      { status: 500 }
+    );
   }
 }

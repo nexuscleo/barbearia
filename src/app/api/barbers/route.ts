@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { dbService, AVAILABLE_HOURS } from '@/lib/db-service';
+import { getErrorMessage } from '@/lib/errors';
 
 export async function GET(request: NextRequest) {
   try {
@@ -21,7 +22,10 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true, barbers });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { success: false, error: getErrorMessage(error) },
+      { status: 500 }
+    );
   }
 }

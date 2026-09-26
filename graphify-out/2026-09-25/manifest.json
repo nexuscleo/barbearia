@@ -1,0 +1,117 @@
+{
+  "eslint.config.mjs": {
+    "mtime": 1789866068.948578,
+    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "functions/package.json": {
+    "mtime": 1789866653.211933,
+    "ast_hash": "ded64969b6f216969052a807b4893eae",
+    "semantic_hash": "ded64969b6f216969052a807b4893eae"
+  },
+  "functions/src/index.ts": {
+    "mtime": 1789866660.1634493,
+    "ast_hash": "08b434046ab12ea3f120bc47601b59df",
+    "semantic_hash": "08b434046ab12ea3f120bc47601b59df"
+  },
+  "next.config.ts": {
+    "mtime": 1789866069.4374588,
+    "ast_hash": "9b77af189a21a7a64e4bd7a426f64176",
+    "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
+  },
+  "package.json": {
+    "mtime": 1789866847.4268866,
+    "ast_hash": "91da58478e951f69589401017db30427",
+    "semantic_hash": "91da58478e951f69589401017db30427"
+  },
+  "postcss.config.mjs": {
+    "mtime": 1789866069.0531256,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "scripts/test-concurrency.mjs": {
+    "mtime": 1789866842.7078056,
+    "ast_hash": "4fc35cfe5613df48c4994be164d44115",
+    "semantic_hash": "4fc35cfe5613df48c4994be164d44115"
+  },
+  "src/app/api/agendamentos/route.ts": {
+    "mtime": 1789866665.3062482,
+    "ast_hash": "842fbfab1dc6b723642d8170a8670b2a",
+    "semantic_hash": "842fbfab1dc6b723642d8170a8670b2a"
+  },
+  "src/app/api/barbers/route.ts": {
+    "mtime": 1789866669.7535641,
+    "ast_hash": "b955280ba63f35230147a0373ffd891b",
+    "semantic_hash": "b955280ba63f35230147a0373ffd891b"
+  },
+  "src/app/api/services/route.ts": {
+    "mtime": 1789866675.182399,
+    "ast_hash": "a5a461854c1c6a459bd6267162e71a37",
+    "semantic_hash": "a5a461854c1c6a459bd6267162e71a37"
+  },
+  "src/app/api/simulate-concurrency/route.ts": {
+    "mtime": 1789866681.5131896,
+    "ast_hash": "16003a1b400a6a74995eda220287af11",
+    "semantic_hash": "16003a1b400a6a74995eda220287af11"
+  },
+  "src/app/layout.tsx": {
+    "mtime": 1789866764.8628263,
+    "ast_hash": "4fe6aca8da1290032816c08a778e7dbc",
+    "semantic_hash": "4fe6aca8da1290032816c08a778e7dbc"
+  },
+  "src/app/page.tsx": {
+    "mtime": 1789866772.5931144,
+    "ast_hash": "660337305a5013cee8da56cc27b8b208",
+    "semantic_hash": "660337305a5013cee8da56cc27b8b208"
+  },
+  "src/components/admin/AdminDashboard.tsx": {
+    "mtime": 1789866822.7178545,
+    "ast_hash": "9e2f71aa5d9d81da252ad9567798273e",
+    "semantic_hash": "9e2f71aa5d9d81da252ad9567798273e"
+  },
+  "src/components/client/BookingWizard.tsx": {
+    "mtime": 1789866720.7874167,
+    "ast_hash": "fa148f0e666aec690eaf2b024a07c2bb",
+    "semantic_hash": "fa148f0e666aec690eaf2b024a07c2bb"
+  },
+  "src/components/client/MyAppointments.tsx": {
+    "mtime": 1789866729.7794194,
+    "ast_hash": "35ce2d05f2b1986681770fac217e801f",
+    "semantic_hash": "35ce2d05f2b1986681770fac217e801f"
+  },
+  "src/components/common/ConcurrencySimulatorModal.tsx": {
+    "mtime": 1789866757.2489264,
+    "ast_hash": "7b381fcb2023c5835dbbad3d8cc2bd32",
+    "semantic_hash": "7b381fcb2023c5835dbbad3d8cc2bd32"
+  },
+  "src/components/layout/Navbar.tsx": {
+    "mtime": 1789866702.1073923,
+    "ast_hash": "0b30fe7bc6fe87c43f05b86cc997f043",
+    "semantic_hash": "0b30fe7bc6fe87c43f05b86cc997f043"
+  },
+  "src/contexts/AuthContext.tsx": {
+    "mtime": 1789866687.6908977,
+    "ast_hash": "77f81a61d4e606f6a27b04e941c140fd",
+    "semantic_hash": "77f81a61d4e606f6a27b04e941c140fd"
+  },
+  "src/lib/db-service.ts": {
+    "mtime": 1789866815.9877968,
+    "ast_hash": "e6a896459f9dc026beb523569ddad657",
+    "semantic_hash": "e6a896459f9dc026beb523569ddad657"
+  },
+  "src/lib/firebase.ts": {
+    "mtime": 1789866633.0200326,
+    "ast_hash": "e3e0b2378630aae52c6f58b59a6d00a0",
+    "semantic_hash": "e3e0b2378630aae52c6f58b59a6d00a0"
+  },
+  "src/types/index.ts": {
+    "mtime": 1789866626.3037786,
+    "ast_hash": "9036c72ac374c4d0513d3d7940830621",
+    "semantic_hash": "9036c72ac374c4d0513d3d7940830621"
+  },
+  "tsconfig.json": {
+    "mtime": 1789866807.954051,
+    "ast_hash": "6cd8fedd48dcc42d1d5026c3cc5f98b8",
+    "semantic_hash": "6cd8fedd48dcc42d1d5026c3cc5f98b8"
+  }
+}

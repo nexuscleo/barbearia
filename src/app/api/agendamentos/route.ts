@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { dbService } from '@/lib/db-service';
-import { BookingRequest } from '@/types';
+import { bookingRequestSchema, patchAppointmentSchema } from '@/lib/validations/booking';
+import { checkRateLimit } from '@/lib/rate-limiter';
+import { AppError, getErrorMessage } from '@/lib/errors';
 
 // GET: Listar agendamentos com filtros opcionais
 export async function GET(request: NextRequest) {
@@ -12,25 +14,50 @@ export async function GET(request: NextRequest) {
 
     const appointments = dbService.getAppointments({ date, barberId, clientId });
     return NextResponse.json({ success: true, appointments });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { success: false, error: getErrorMessage(error) },
+      { status: 500 }
+    );
   }
 }
 
 // POST: Criar novo agendamento com trava estrita de concorrência atômica
 export async function POST(request: NextRequest) {
   try {
-    const body: BookingRequest = await request.json();
-
-    if (!body.barbeiroId || !body.servicoId || !body.data || !body.horario || !body.clienteNome) {
+    // 1. Rate limiting por IP ou cabeçalho
+    const ip = request.headers.get('x-forwarded-for') || 'local-client';
+    const rateLimit = checkRateLimit(`booking_${ip}`, 20, 60_000);
+    if (!rateLimit.allowed) {
       return NextResponse.json(
-        { success: false, error: 'Campos obrigatórios ausentes (barbeiro, serviço, data, horário, nome).' },
-        { status: 400 }
+        {
+          success: false,
+          error: `Muitas tentativas. Aguarde ${rateLimit.retryAfterSeconds} segundos.`,
+          code: 'RATE_LIMIT_EXCEEDED',
+        },
+        { status: 429 }
       );
     }
 
-    // Chamada à transação atômica
-    const appointment = await dbService.bookAppointmentAtomic(body);
+    // 2. Leitura e validação rigorosa de esquema via Zod
+    const rawBody = await request.json().catch(() => null);
+    const validationResult = bookingRequestSchema.safeParse(rawBody);
+
+    if (!validationResult.success) {
+      const errorDetails = validationResult.error.flatten().fieldErrors;
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Dados de agendamento inválidos.',
+          details: errorDetails,
+          code: 'VALIDATION_ERROR',
+        },
+        { status: 422 }
+      );
+    }
+
+    // 3. Chamada à transação atômica
+    const appointment = await dbService.bookAppointmentAtomic(validationResult.data);
 
     return NextResponse.json(
       {
@@ -40,16 +67,25 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
-    // Captura rejeição de concorrência
-    const statusCode = error.statusCode || (error.code === 'SLOT_ALREADY_BOOKED' ? 409 : 500);
+  } catch (error: unknown) {
+    if (error instanceof AppError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: error.message,
+          code: error.code,
+        },
+        { status: error.statusCode }
+      );
+    }
+
     return NextResponse.json(
       {
         success: false,
-        error: error.message || 'Erro ao processar agendamento.',
-        code: error.code || 'BOOKING_FAILED',
+        error: getErrorMessage(error) || 'Erro ao processar agendamento.',
+        code: 'BOOKING_FAILED',
       },
-      { status: statusCode }
+      { status: 500 }
     );
   }
 }
@@ -57,11 +93,17 @@ export async function POST(request: NextRequest) {
 // PATCH: Atualizar status do agendamento (concluido / cancelado)
 export async function PATCH(request: NextRequest) {
   try {
-    const { id, action } = await request.json();
+    const rawBody = await request.json().catch(() => null);
+    const validationResult = patchAppointmentSchema.safeParse(rawBody);
 
-    if (!id || !action) {
-      return NextResponse.json({ success: false, error: 'ID e ação são necessários.' }, { status: 400 });
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { success: false, error: 'ID e ação válidos são necessários.' },
+        { status: 400 }
+      );
     }
+
+    const { id, action } = validationResult.data;
 
     let ok = false;
     if (action === 'cancel') {
@@ -71,11 +113,20 @@ export async function PATCH(request: NextRequest) {
     }
 
     if (!ok) {
-      return NextResponse.json({ success: false, error: 'Agendamento não encontrado.' }, { status: 404 });
+      return NextResponse.json(
+        { success: false, error: 'Agendamento não encontrado.' },
+        { status: 404 }
+      );
     }
 
-    return NextResponse.json({ success: true, message: `Status alterado para: ${action}` });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({
+      success: true,
+      message: `Status alterado para: ${action}`,
+    });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { success: false, error: getErrorMessage(error) },
+      { status: 500 }
+    );
   }
 }

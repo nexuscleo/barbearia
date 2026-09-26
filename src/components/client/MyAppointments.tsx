@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Appointment } from '@/types';
 import { useAuth } from '@/contexts/AuthContext';
-import { Calendar, Clock, Scissors, User, XCircle, CheckCircle2, AlertTriangle, RefreshCw } from 'lucide-react';
+import { bookingApi } from '@/services/booking-api';
+import { Calendar, Clock, User, XCircle, RefreshCw } from 'lucide-react';
 
 interface MyAppointmentsProps {
   onNewBookingClick: () => void;
@@ -15,43 +16,51 @@ export const MyAppointments: React.FC<MyAppointmentsProps> = ({ onNewBookingClic
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [cancellingId, setCancellingId] = useState<string | null>(null);
 
-  const fetchAppointments = async () => {
-    setIsLoading(true);
+  const fetchAppointments = useCallback(async () => {
     try {
-      const res = await fetch('/api/agendamentos');
-      const data = await res.json();
-      if (data.success) {
-        // Se for cliente demo, mostra agendamentos gerais ou os dele
-        setAppointments(data.appointments);
-      }
-    } catch (e) {
+      const data = await bookingApi.getAppointments();
+      setAppointments(data);
+    } catch (e: unknown) {
       console.error('Erro ao buscar agendamentos:', e);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    fetchAppointments();
+    let isMounted = true;
+    bookingApi
+      .getAppointments()
+      .then((data) => {
+        if (!isMounted) return;
+        setAppointments(data);
+        setIsLoading(false);
+      })
+      .catch((e: unknown) => {
+        console.error('Erro ao buscar agendamentos:', e);
+        if (isMounted) setIsLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, [user]);
 
+  const handleManualRefresh = async () => {
+    setIsLoading(true);
+    await fetchAppointments();
+  };
+
   const handleCancel = async (id: string) => {
-    if (!confirm('Deseja realmente cancelar este agendamento? O horário será liberado para outros clientes.')) {
+    if (!window.confirm('Deseja realmente cancelar este agendamento? O horário será liberado para outros clientes.')) {
       return;
     }
 
     setCancellingId(id);
     try {
-      const res = await fetch('/api/agendamentos', {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, action: 'cancel' }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        fetchAppointments();
-      }
-    } catch (e) {
+      await bookingApi.updateAppointmentStatus(id, 'cancel');
+      fetchAppointments();
+    } catch (e: unknown) {
       console.error('Erro ao cancelar agendamento:', e);
     } finally {
       setCancellingId(null);
@@ -60,19 +69,20 @@ export const MyAppointments: React.FC<MyAppointmentsProps> = ({ onNewBookingClic
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
         <div>
-          <h2 className="text-xl font-bold text-zinc-100 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-amber-400" />
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold">
+            Área do Cliente
+          </span>
+          <h2 className="text-xl font-bold text-zinc-100 flex items-center gap-2 mt-0.5">
+            <Calendar className="w-5 h-5 text-amber-500" />
             Meus Agendamentos
           </h2>
-          <p className="text-xs text-zinc-400">
-            Acompanhe o status das suas visitas e reservas
-          </p>
         </div>
         <button
-          onClick={fetchAppointments}
-          className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-amber-400 hover:border-amber-500/40 transition-colors"
+          type="button"
+          onClick={handleManualRefresh}
+          className="p-2 rounded bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-amber-400 transition-colors"
           title="Atualizar lista"
         >
           <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
@@ -81,15 +91,16 @@ export const MyAppointments: React.FC<MyAppointmentsProps> = ({ onNewBookingClic
 
       {isLoading ? (
         <div className="p-12 text-center text-zinc-500">
-          <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-          <p className="text-sm">Carregando seus agendamentos...</p>
+          <div className="w-6 h-6 border-2 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+          <p className="text-xs font-mono">Carregando agendamentos...</p>
         </div>
       ) : appointments.length === 0 ? (
-        <div className="p-8 text-center bg-zinc-900/40 border border-zinc-800 rounded-2xl">
-          <p className="text-zinc-400 text-sm mb-4">Você ainda não possui nenhum horário marcado.</p>
+        <div className="p-8 text-center bg-zinc-900/40 border border-zinc-800 rounded-lg">
+          <p className="text-zinc-400 text-xs mb-4">Você ainda não possui nenhum horário marcado.</p>
           <button
+            type="button"
             onClick={onNewBookingClick}
-            className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold rounded-xl text-xs transition-all shadow-md shadow-amber-500/20"
+            className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold rounded-md text-xs transition-colors"
           >
             Agendar Primeiro Horário
           </button>
@@ -104,25 +115,25 @@ export const MyAppointments: React.FC<MyAppointmentsProps> = ({ onNewBookingClic
             return (
               <div
                 key={apt.id}
-                className={`p-4 rounded-xl border transition-all ${
+                className={`p-4 rounded-lg border transition-all ${
                   isCancelled
                     ? 'bg-zinc-950/40 border-zinc-900 opacity-60'
                     : isCompleted
                     ? 'bg-zinc-900/60 border-zinc-800'
-                    : 'bg-zinc-900/80 border-amber-500/30 shadow-md shadow-amber-500/5'
+                    : 'bg-zinc-900/80 border-amber-500/30'
                 }`}
               >
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="font-bold text-base text-zinc-100">{apt.servicoNome}</h3>
+                      <h3 className="font-semibold text-sm text-zinc-100">{apt.servicoNome}</h3>
                       <span
-                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase ${
+                        className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded uppercase ${
                           isConfirmed
-                            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                            ? 'bg-emerald-500/20 text-emerald-400'
                             : isCompleted
-                            ? 'bg-blue-500/10 text-blue-400 border-blue-500/30'
-                            : 'bg-red-500/10 text-red-400 border-red-500/30'
+                            ? 'bg-blue-500/20 text-blue-400'
+                            : 'bg-red-500/20 text-red-400'
                         }`}
                       >
                         {apt.status}
@@ -135,30 +146,31 @@ export const MyAppointments: React.FC<MyAppointmentsProps> = ({ onNewBookingClic
                   </div>
 
                   <div className="text-right">
-                    <span className="text-amber-400 font-bold text-sm">
+                    <span className="text-amber-400 font-mono font-bold text-sm">
                       R$ {Number(apt.preco).toFixed(2)}
                     </span>
-                    <span className="block text-[10px] text-zinc-500">{apt.duracaoMinutos} min</span>
+                    <span className="block text-[10px] text-zinc-500 font-mono">{apt.duracaoMinutos} min</span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-3 border-t border-zinc-800/60 text-xs">
+                <div className="flex items-center justify-between pt-3 border-t border-zinc-800 text-xs font-mono">
                   <div className="flex items-center gap-3 text-zinc-300">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-amber-400" />
+                      <Calendar className="w-3.5 h-3.5 text-amber-500" />
                       {apt.data}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-amber-400" />
+                      <Clock className="w-3.5 h-3.5 text-amber-500" />
                       {apt.horario}
                     </span>
                   </div>
 
                   {isConfirmed && (
                     <button
+                      type="button"
                       disabled={cancellingId === apt.id}
                       onClick={() => handleCancel(apt.id)}
-                      className="text-red-400 hover:text-red-300 text-xs font-semibold flex items-center gap-1 hover:underline disabled:opacity-50"
+                      className="text-red-400 hover:text-red-300 text-xs font-semibold flex items-center gap-1 transition-colors disabled:opacity-50"
                     >
                       <XCircle className="w-3.5 h-3.5" />
                       {cancellingId === apt.id ? 'Cancelando...' : 'Cancelar'}
